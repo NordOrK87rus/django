@@ -1,0 +1,17 @@
+[{
+		"name": "home",
+		"href": "/"
+	}, {
+		"name": "products",
+		"href": "products/"
+	}, {
+		"name": "history",
+		"href": "#"
+	}, {
+		"name": "showroom",
+		"href": "#"
+	}, {
+		"name": "contacts",
+		"href": "contacts/"
+	}
+]

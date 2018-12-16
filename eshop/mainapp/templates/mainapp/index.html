@@ -1,32 +1,13 @@
-<!doctype html>
-{% load staticfiles %}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% load static %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap-4/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{%  static 'css/style.css' %}">
-    <title>Interior shop</title>
-</head>
+{%  block page_title %}
+    Interior shop
+{% endblock %}
 
-<body>
-    <div class="container px-0">
-        <div class="header">
-            <a href="#">
-                <img class="logo" src="{% static 'img/logo.png'%}" alt="logo">
-            </a>
-            <ul class="menu">
-                <li><a href="#">HOME</a></li>
-                <li><a href="/products/">PRODUCTS</a></li>
-                <li><a href="#">HISTORY</a></li>
-                <li><a href="#">SHOWROOM</a></li>
-                <li><a href="/contacts/">CONTACT</a></li>
-            </ul>
-            <div class="text0">
+{% block header_text %}
+    <div class="text0">
                 <h3>TRENDING</h3>
                 <h1>FISHNET CHAIR</h1>
                 <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black
@@ -34,7 +15,9 @@
                 </p>
                 <a href="#">ORDER US</a>
             </div>
-        </div>
+{% endblock %}
+
+{% block page_content %}
         <div class="featured">
             <div class="row mini_head">
                 <div class="col-md-8">
@@ -202,82 +185,4 @@
 
             </div>
         </div>
-
-        <div class="footer">
-            <div class="f_text">
-                <div class="row">
-                    <div class="col-md-3 f_contact">
-                        <h3>CONTACT US</h3>
-                        <p>132A Bridge Road Richmond VIC
-                            Australia. <br><br> Talk to us on 1300 132
-                            info@interior.com</p>
-                    </div>
-                    <div class="col-md-5 uinf">
-                        <h3>USEFUL INFORMATION</h3>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <ul>
-                                    <li><a href="#">SALES TERMS</a></li>
-                                    <li><a href="#">CUSTOMER CARE</a></li>
-                                    <li><a href="#">DELIVERY</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul>
-                                    <li><a href="#">ARCHITECT ACCOUNTS</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Exchanges &amp; returns</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 stay_it">
-                        <h3>LET'S STAY IN TOUCH!</h3>
-                        <p>Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-                        <div class="email">
-                            <input type="email" class="form-control" placeholder="your email address">
-                            <div class="button">
-                                <a href="JavaScript:alert('Message sended sucessfully!')"><img src="{% static 'img/airplane.png'%}" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ground">
-                    <div class="col-md-4">
-                        <p class="text-left">&copy; Copyright - INTERIOR <script>
-                                document.write(new Date().getFullYear())
-
-                            </script>. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-md-4 icons">
-                        <div class="row row-centered">
-                            <div class="col">
-                                <img class="mx-auto d-block" src="{%  static 'img/social-links.png'%}" usemap="#image-map" alt="social">
-                                <map name="image-map">
-                                    <area href="JavaScript:alert('Facebook')" coords="14,15,12" shape="circle" alt="Facebook">
-                                    <area href="JavaScript:alert('Twitter')" coords="48,15,12" shape="circle" alt="Twitter">
-                                    <area href="JavaScript:alert('Google')" coords="82,15,12" shape="circle" alt="Google">
-                                    <area href="JavaScript:alert('Pinterest')" coords="115,14,14" shape="circle" alt="Pinterest">
-                                </map>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 terms">
-                        <p class="text-right">
-                            <a href="#">Terms &amp; Conditions</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="#">Privacy policy &amp; Cookies</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'bootstrap-4/js/bootstrap.min.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}

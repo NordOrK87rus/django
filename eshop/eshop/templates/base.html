@@ -1,5 +1,6 @@
+{% load static %}
+{% load bootstrap4 %}
 <!doctype html>
-{% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -8,99 +9,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap-4/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/products.css'%}">
-    <title>Products</title>
+{#    <link rel="stylesheet" href="{% static '_d_bootstrap-4/css/bootstrap.min.css' %}">#}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static  css_file  %}">
+    <title>{% block page_title %}{% endblock %}</title>
 </head>
 
 <body>
     <div class="container px-0">
-        <div class="row">
+            <div class="row">
             <div class="col-md-12 header">
                 <a href="#">
-                    <img class="logo" src="{% static 'img/logo.png' %}" alt="logo">
+                    <img class="logo" src="{% static 'img/logo.png'%}" alt="logo">
                 </a>
+
                 <ul class="menu">
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="#">PRODUCTS</a></li>
-                    <li><a href="#">HISTORY</a></li>
-                    <li><a href="#">SHOWROOM</a></li>
-                    <li><a href="/contacts/">CONTACT</a></li>
+                    {% for i in menu_items %}
+                        <li><a href="{{ i.href }}">{{ i.name|upper }}</a></li>
+                    {% endfor %}
                 </ul>
-                <h1>Our Products Range</h1>
-            </div>
 
-        </div>
-
-        <div class="row prod_types">
-            <div class="row ">
-                <div class="col-md-12">
-                    <div class="row fn_menu">
-                        <div><a href="#">all</a></div>
-                        <div><a href="#">home</a></div>
-                        <div><a href="#">office</a></div>
-                        <div><a href="#">furniture</a></div>
-                        <div><a href="#">modern</a></div>
-                        <div><a href="#">classic</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row p_images">
-                <div class="row">
-                    <div class="col-md-4 pi pi_11"></div>
-                    <div class="col-md-4 pi pi_12"></div>
-                    <div class="col-md-4 pi pi_13"></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 pi pi_21"></div>
-                    <div class="col-md-4 pi pi_22"></div>
-                    <div class="col-md-4 pi pi_23"></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 pi pi_31"></div>
-                    <div class="col-md-4 pi pi_32"></div>
-                    <div class="col-md-4 pi pi_33"></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 pi pi_41"></div>
-                    <div class="col-md-4 pi pi_42"></div>
-                    <div class="col-md-4 pi pi_43"></div>
-                </div>
+                {% block header_text %}{% endblock %}
             </div>
         </div>
-
-        <div class="row ">
-            <div class="col refresh">
-                <a href="#"><img class="mx-auto d-block" src="{% static 'img/refresh.png'%}" alt="refresh"></a>
-            </div>
-        </div>
-
-        <div class="row promo">
-            <div class="col-md-6 promo1">
-                <div class="text1">
-                    <h3>EXCLUSIVE</h3>
-                    <h1>FISHNET CHAIR</h1>
-                    <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                        powder-coated black
-                        or highly polished chrome.
-                    </p>
-                    <a href="#">ORDER US</a>
-                </div>
-            </div>
-            <div class="col-md-6 promo2">
-                <div class="text1">
-                    <h3>EXCLUSIVE</h3>
-                    <h1>FISHNET CHAIR</h1>
-                    <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                        powder-coated black
-                        or highly polished chrome.
-                    </p>
-                    <a href="#">ORDER US</a>
-                </div>
-            </div>
-        </div>
-
+        {% block page_content %}{% endblock %}
         <div class="footer">
             <div class="f_text">
                 <div class="row">
@@ -142,10 +74,8 @@
                 </div>
                 <div class="row ground">
                     <div class="col-md-4">
-                        <p class="text-left">&copy; Copyright - INTERIOR <script>
-                            document.write(new Date().getFullYear())
 
-                        </script>. All Rights Reserved.</p>
+                        <p class="text-left">&copy; Copyright - INTERIOR  {% now "Y" %}. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-4 icons">
                         <div class="row row-centered">
@@ -171,9 +101,7 @@
 
 
     </div>
-        <script src="{% static 'js/jquery-3.3.1.slim.min.js'%}"></script>
-        <script src="{% static 'js/popper.min.js'%}"></script>
-        <script src="{% static 'bootstrap-4/js/bootstrap.min.js'%}"></script>
-</body>
+    {% bootstrap_javascript %}
 
+</body>
 </html>
