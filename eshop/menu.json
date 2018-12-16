@@ -3,7 +3,7 @@
 		"href": "/"
 	}, {
 		"name": "products",
-		"href": "products/"
+		"href": "/products/"
 	}, {
 		"name": "history",
 		"href": "#"
@@ -12,6 +12,6 @@
 		"href": "#"
 	}, {
 		"name": "contacts",
-		"href": "contacts/"
+		"href": "/contacts/"
 	}
 ]
