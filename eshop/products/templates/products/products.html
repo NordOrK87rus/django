@@ -32,24 +32,24 @@
 
         <div class="row p_images">
             <div class="row">
-                <div class="col-md-4 pi pi_11"></div>
-                <div class="col-md-4 pi pi_12"></div>
-                <div class="col-md-4 pi pi_13"></div>
+                {% for pitem in products|slice:"0:3" %}
+                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
+                {% endfor %}
             </div>
             <div class="row">
-                <div class="col-md-4 pi pi_21"></div>
-                <div class="col-md-4 pi pi_22"></div>
-                <div class="col-md-4 pi pi_23"></div>
+                {% for pitem in products|slice:"3:6" %}
+                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
+                {% endfor %}
             </div>
             <div class="row">
-                <div class="col-md-4 pi pi_31"></div>
-                <div class="col-md-4 pi pi_32"></div>
-                <div class="col-md-4 pi pi_33"></div>
+                {% for pitem in products|slice:"6:9" %}
+                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
+                {% endfor %}
             </div>
             <div class="row">
-                <div class="col-md-4 pi pi_41"></div>
-                <div class="col-md-4 pi pi_42"></div>
-                <div class="col-md-4 pi pi_43"></div>
+                {% for pitem in products|slice:"9:12" %}
+                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
+                {% endfor %}
             </div>
         </div>
     </div>

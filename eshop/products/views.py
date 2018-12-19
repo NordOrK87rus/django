@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Product
 import json
 
 
@@ -11,6 +12,6 @@ def products_view(request):
         'products/products.html',
         {
             'menu_items': menu_data,
-            'css_file': 'css/products.css',
+            'products': Product.objects.all()[:12]
         }
     )

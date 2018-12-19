@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
+from .models import Contact
 import json
 
 
@@ -11,6 +12,6 @@ def contacts_view(request):
         'contacts/contacts.html',
         {
             'menu_items': menu_data,
-            'css_file': 'css/contacts.css',
+            'contacts': get_list_or_404(Contact),
         }
     )
