@@ -3,7 +3,11 @@
 {% load static %}
 
 {%  block page_title %}
-    Interior shop
+    <title>Interior shop</title>
+{% endblock %}
+
+{%  block page_styles %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
 {% endblock %}
 
 {% block header_text %}

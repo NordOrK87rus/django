@@ -3,7 +3,11 @@
 {% load static %}
 
 {%  block page_title %}
-    Products
+    <title>Products</title>
+{% endblock %}
+
+{%  block page_styles %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 
