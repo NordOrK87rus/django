@@ -31,26 +31,13 @@
         </div>
 
         <div class="row p_images">
+            {% for pli in products %}
             <div class="row">
-                {% for pitem in products|slice:"0:3" %}
-                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
+                {% for pi in pli %}
+                    <div class="col-md-4"><img class="pi" src="{{ MEDIA_URL }}{{ pi.image }}" alt="{{ pi.name }}"></div>
                 {% endfor %}
             </div>
-            <div class="row">
-                {% for pitem in products|slice:"3:6" %}
-                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
-                {% endfor %}
-            </div>
-            <div class="row">
-                {% for pitem in products|slice:"6:9" %}
-                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
-                {% endfor %}
-            </div>
-            <div class="row">
-                {% for pitem in products|slice:"9:12" %}
-                    <div class="col-md-4 pi"><img src="{{ MEDIA_URL }}{{ pitem.image }}" alt="{{ pitem.name }}"></div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -61,27 +48,17 @@
     </div>
 
     <div class="row promo">
-        <div class="col-md-6 promo1">
+        {% for pi in promo %}
+        <div class="col-md-6" style="height: 683px; background-image: url({{ MEDIA_URL }}{{ pi.image }});">
             <div class="text1">
-                <h3>EXCLUSIVE</h3>
-                <h1>FISHNET CHAIR</h1>
-                <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                    powder-coated black
-                    or highly polished chrome.
-                </p>
+                {% if pi.exclusive %}
+                    <h3>EXCLUSIVE</h3>
+                {% endif %}
+                <h1>{{ pi.name }}</h1>
+                <p>{{ pi.desc }}</p>
                 <a href="#">ORDER US</a>
             </div>
         </div>
-        <div class="col-md-6 promo2">
-            <div class="text1">
-                <h3>EXCLUSIVE</h3>
-                <h1>FISHNET CHAIR</h1>
-                <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                    powder-coated black
-                    or highly polished chrome.
-                </p>
-                <a href="#">ORDER US</a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {%  endblock %}

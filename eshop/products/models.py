@@ -9,5 +9,7 @@ class Product(models.Model):
     is_promo = models.BooleanField(verbose_name='Promo', default=False)
     in_trend = models.BooleanField(verbose_name='In trend', default=False)
 
+    def __str__(self):
+        return "%s (%s%s)" % (self.name, self.desc[:50], '...' if len(self.desc) > 50 else '')
 
 

@@ -7,3 +7,6 @@ class Contact(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=250)
     state = models.CharField(max_length=50)
+
+    def __str__(self):
+        return "%s - %s" % (self.state, self.address)
