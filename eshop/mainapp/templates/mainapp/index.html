@@ -40,77 +40,34 @@
             </div>
             <div class="goods">
                 <div class="row">
-                    <div class="col">
-                        <div class="p1">
-                            <div class="image"></div>
-                            <div class="details">
-                                <a href="#"></a>
-                                <h4>Fishnet Chair</h4>
-                                <p>Seat and back with upholstery made of cold cure foam
-                                    . Steel frame, available in matt powder-coated black
-                                    or highly polished chrome.</p>
+                    {% for fp in f_products %}
+                         <div class="col">
+                            <div class="fp">
+                                <div class="image" style="background: url({{ MEDIA_URL }}{{ fp.image }}) no-repeat;"></div>
+                                <div class="details">
+                                    <a href="#"></a>
+                                    <h4>{{ fp.name }}</h4>
+                                    <p>{{ fp.desc }}</p>
+                                </div>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="p2">
-                            <div class="image"></div>
-                            <div class="details">
-                                <a href="#"></a>
-                                <h4>Blue Chair</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quia.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="p3">
-                            <div class="image"></div>
-                            <div class="details">
-                                <a href="#"></a>
-                                <h4>White pot</h4>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="p4">
-                            <div class="image"></div>
-                            <div class="details">
-                                <a href="#"></a>
-                                <h4>Red Chair</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                            </div>
-                        </div>
-                    </div>
+                         </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
 
         <div class="promo">
             <div class="row">
-                <div class="col-md-6 promo1">
-                    <div class="text1">
-                        <h3>EXCLUSIVE</h3>
-                        <h1>FISHNET CHAIR</h1>
-                        <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                            powder-coated black
-                            or highly polished chrome.
-                        </p>
-                        <a href="#">ORDER US</a>
+                {% for pp in p_products %}
+                    <div class="col-md-6" style="background-image: url({{ MEDIA_URL }}{{ pp.image }}); height: 42.6875rem;">
+                        <div class="text1">
+                            <h3>EXCLUSIVE</h3>
+                            <h1>{{ pp.name }}</h1>
+                            <p>{{ pp.desc }}</p>
+                            <a href="#">ORDER US</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 promo2">
-                    <div class="text1">
-                        <h3>EXCLUSIVE</h3>
-                        <h1>FISHNET CHAIR</h1>
-                        <p>Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                            powder-coated black
-                            or highly polished chrome.
-                        </p>
-                        <a href="#">ORDER US</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
@@ -125,16 +82,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 p11"></div>
-                <div class="col-md-4 p12"></div>
-                <div class="col-md-4 p13"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 p21"></div>
-                <div class="col-md-4 p22"></div>
-                <div class="col-md-4 p23"></div>
-            </div>
+            {% for tpl in t_products %}
+                <div class="row">
+                    {%  for tp in tpl %}
+                        <div class="col-md-4">
+                            <img class="pi" src="{{ MEDIA_URL }}{{ tp.image }}" alt="{{ tp.name }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
 
         <div class="hot_deal">
@@ -162,19 +118,18 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    {%  for epl in e_products %}
                     <div class="row">
-                        <div class="col-md-6 ep_sm11"></div>
-                        <div class="col-md-6 ep_sm12"></div>
+                        {% for ep in epl %}
+                        <div class="col-md-6 ep_sm">
+                            <img src="{{ MEDIA_URL }}{{ ep.image }}" alt="{{ ep.name }}">
+                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 ep_sm21"></div>
-                        <div class="col-md-6 ep_sm22"></div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
-
         <div class="mobile_app">
             <div class="text0">
                 <h3>mobile app</h3>

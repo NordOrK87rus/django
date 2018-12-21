@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,700');
-@import "container";
-@import "header";
-@import "texts";
+@import "../../../../static/css/container";
+@import "../../../../static/css/header";
+@import "../../../../static/css/texts";
 
 @part_space: 7.5rem;
+
+.row {
+    margin: 0;
+ }
 
 .header {
     height: 800px;
@@ -98,22 +102,6 @@
             height: 16.875rem;
         }
 
-        .p1 .image {
-            background: url(../img/product-1.png) no-repeat;
-        }
-
-        .p2 .image {
-            background: url(../img/product-2.png) no-repeat;
-        }
-
-        .p3 .image {
-            background: url(../img/product-3.png) no-repeat;
-        }
-
-        .p4 .image {
-            background: url(../img/product-4.png) no-repeat;
-        }
-
         .details {
             position: absolute;
             width: 16.875rem;
@@ -157,22 +145,15 @@
                 height: 2.5rem;
                 margin-left: 2rem;
                 overflow: hidden;
-
             }
 
         }
 
-        .p1:hover .image,
-        .p2:hover .image,
-        .p3:hover .image,
-        .p4:hover .image {
+        .fp:hover .image{
             opacity: 0.25;
         }
 
-        .p1:hover .details,
-        .p2:hover .details,
-        .p3:hover .details,
-        .p4:hover .details {
+        .fp:hover .details {
             visibility: visible;
         }
 
@@ -186,21 +167,11 @@
 }
 
 .promo {
-    margin-bottom: @part_space;
+  margin-bottom: @part_space;
 
-    h3 {
-        color: #1e88e5;
-    }
-
-    .promo1 {
-        background-image: url(../img/promo-img1.jpg);
-        height: 42.6875rem;
-    }
-
-    .promo2 {
-        .promo1;
-        background-image: url(../img/promo-img.jpg);
-    }
+  h3 {
+    color: #1e88e5;
+  }
 }
 
 .trend_prod {
@@ -212,38 +183,10 @@
         font-weight: 700;
     }
 
-    .p11,
-    .p12,
-    .p13,
-    .p21,
-    .p22,
-    .p23 {
+    .pi {
         width: 23.125rem;
         height: 23.125rem;
-    }
-
-    .p11 {
-        background: url(../img/product-11.jpg) no-repeat;
-    }
-
-    .p12 {
-        background: url(../img/product-21.jpg) no-repeat;
-    }
-
-    .p13 {
-        background: url(../img/product-31.jpg) no-repeat;
-    }
-
-    .p21 {
-        background: url(../img/product-41.jpg) no-repeat;
-    }
-
-    .p22 {
-        background: url(../img/product-5.jpg) no-repeat;
-    }
-
-    .p23 {
-        background: url(../img/product-6.jpg) no-repeat;
+        margin-bottom: 1rem;
     }
 }
 
@@ -276,29 +219,12 @@
         }
     }
 
-    .ep_sm11,
-    .ep_sm12,
-    .ep_sm21,
-    .ep_sm22 {
+    .ep_sm {
+        display: block;
         width: 16.875rem;
         height: 16.875rem;
-    }
-
-    .ep_sm11 {
-        background: url(../img/product-2-sm.jpg) no-repeat;
         margin-bottom: 1.875rem;
-    }
-
-    .ep_sm12 {
-        background: url(../img/product-3-sm.jpg) no-repeat;
-    }
-
-    .ep_sm21 {
-        background: url(../img/product-4-sm.jpg) no-repeat;
-    }
-
-    .ep_sm22 {
-        background: url(../img/product-5-sm.jpg) no-repeat;
+        margin-right: 16px;
     }
 }
 
@@ -307,7 +233,6 @@
     background: url(../img/back-img.jpg) no-repeat;
 
     .text0 {
-        //        width: 407px;
         margin-top: 7.8125rem;
 
         h3 {
@@ -336,4 +261,4 @@
 
 }
 
-@import "footer";
+@import "../../../../static/css/footer";
