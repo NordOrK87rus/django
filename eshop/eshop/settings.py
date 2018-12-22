@@ -38,10 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'accounts',
+    'images',
     'mainapp',
     'contacts',
     'products'
 ]
+
+AUTH_USER_MODEL = 'accounts.AccountUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
