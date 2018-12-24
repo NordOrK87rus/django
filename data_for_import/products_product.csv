@@ -1,0 +1,16 @@
+id,name,image,desc,is_promo,in_trend,exclusive
+1,Lamp,products/product-11.jpg,Gray-white lamp,0,1,0
+2,Black lamp,products/product-31.jpg,Black lamp,0,1,0
+4,Wall black lamp,products/product-41.jpg,Black lamp on the wall,0,1,0
+5,Black cap,products/product-5.jpg,Black cap,0,1,0
+6,White vase,products/product-6.jpg,White vase,0,1,0
+7,Fishnet Chair,products/product-1.png,"Seat and back with upholstery made of cold cure foam . Steel frame, available in matt powder-coated black or highly polished chrome.",0,0,0
+8,Blue Chair,products/product-2.png,"Lorem ipsum dolor sit amet, consectetur adipisicing elit.",0,0,0
+9,White pot,products/product-3.png,Lorem ipsum dolor sit amet.,0,1,0
+10,Red Chair,products/product-4.png,"Lorem ipsum dolor sit amet, consectetur adipisicing.",0,0,0
+11,Wall black lamp (ex),products/product-2-sm.jpg,Wall black lamp (exclusive),0,0,1
+12,Gray sofa,products/product-3-sm.jpg,Gray sofa,0,0,1
+13,Rock Clock,products/product-4-sm.jpg,Rock Clock,0,0,1
+14,Black lamp (ex),products/product-5-sm.jpg,Black lamp (exclusive),0,0,1
+15,Promo Brown,products/promo-img.jpg,"Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.",1,0,1
+16,Promo Red,products/promo-img1.jpg,"Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.",1,0,1
