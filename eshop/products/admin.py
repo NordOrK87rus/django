@@ -3,7 +3,9 @@ from django.forms import forms
 from django.urls import path
 from django.shortcuts import render, redirect
 from django.apps import apps
-from .models import Product
+from django.utils.safestring import mark_safe
+from django.conf import settings
+from .models import Product, Category
 
 import os
 import csv
@@ -14,9 +16,24 @@ class CsvImportForm(forms.Form):
     csv_file = forms.FileField()
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category', 'exclusive', 'is_promo', 'in_trend')
+    readonly_fields = ['image_preview', ]
     change_list_template = "admin/changelist.html"
+
+    def image_preview(self, obj):
+        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+            url='%s%s' % (settings.MEDIA_URL, obj.image.value),
+            width=150,
+            height=150,
+        )
+        )
 
     def get_urls(self):
         urls = super().get_urls()
@@ -40,9 +57,9 @@ class ProductAdmin(admin.ModelAdmin):
                 Product.objects.create(
                     name=row['name'],
                     desc=row['desc'],
-                    is_promo=bool(row['is_promo']),
-                    in_trend=bool(row['in_trend']),
-                    exclusive=bool(row['exclusive']),
+                    is_promo=row['is_promo'],
+                    in_trend=row['in_trend'],
+                    exclusive=row['exclusive'],
                     image=img_obj,
                 )
                 cnt += 1

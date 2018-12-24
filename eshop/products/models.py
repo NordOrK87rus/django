@@ -59,8 +59,6 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return "%s (%s%s) [in trend: %s, promo: %s, exclusive: %s]" % (self.name, self.desc[:50],
-                                                                       '...' if len(self.desc) > 50 else '',
-                                                                       self.in_trend,
-                                                                       self.is_promo,
-                                                                       self.exclusive)
+        return "%s (%s%s)" % (self.name, self.desc[:50], '...' if len(self.desc) > 50 else '')
+
+
