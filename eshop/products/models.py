@@ -1,23 +1,24 @@
 from django.db import models
+from django.utils import timezone
 
 
-# class Category(models.Model):
-#     name = models.CharField(
-#         max_length=100,
-#     )
-#     description = models.TextField(
-#         null=True,
-#         blank=True,
-#     )
-#     modified = models.DateTimeField(
-#         auto_now=True
-#     )
-#     created = models.DateTimeField(
-#         auto_now_add=True,
-#     )
-#
-#     def __str__(self):
-#         return self.name
+class Category(models.Model):
+    name = models.CharField(
+        max_length=100,
+    )
+    description = models.TextField(
+        null=True,
+        blank=True,
+    )
+    modified = models.DateTimeField(
+        auto_now=True
+    )
+    created = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -25,9 +26,12 @@ class Product(models.Model):
         max_length=100,
         verbose_name='Product name',
         unique=True)
-    # category=models.ForeignKey(
-    #
-    # )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True
+    )
     image = models.ForeignKey(
         'images.ProductImage',
         on_delete=models.PROTECT,

@@ -11,7 +11,8 @@ class AccountUser(AbstractUser):
     )
     age = models.IntegerField(
         null=False,
-        blank=False
+        blank=False,
+        default=0
     )
 
     def __str__(self):
