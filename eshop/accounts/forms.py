@@ -14,13 +14,13 @@ class AccountUserLoginForm(AuthenticationForm):
             f.widget.attrs['class'] = 'form-control'
 
 
-class AccountUserSignInForm(UserCreationForm):
+class AccountUserSignUpForm(UserCreationForm):
     class Meta:
         model = AccountUser
         fields = ('username', 'password1', 'password2', 'age', 'avatar')
 
     def __init__(self, *args, **kwargs):
-        super(AccountUserSignInForm, self).__init__(*args, **kwargs)
+        super(AccountUserSignUpForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
