@@ -1,22 +1,4 @@
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Montserrat Thin'), local('Montserrat-Thin'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUQjIg1_i6t8kCHKm45_QpRyS7j.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_dJE3gnD-w.ttf) format('truetype');
-}
-@font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon.eot?s712xq');
   src: url('../fonts/icomoon.eot?s712xq#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?s712xq') format('truetype'), url('../fonts/icomoon.woff?s712xq') format('woff'), url('../fonts/icomoon.svg?s712xq#icomoon') format('svg');
@@ -38,46 +20,6 @@ i {
 }
 .icon-location:before {
   content: "\e947";
-}
-html,
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-.container {
-  max-width: 85.375rem;
-  margin: 0 auto;
-}
-.header h3 {
-  color: #43a047;
-}
-.header .logo {
-  margin-left: 6.125rem;
-  margin-top: 3.9375rem;
-}
-.header .menu {
-  float: right;
-  margin-right: 13.1875rem;
-  margin-top: 4.1875rem;
-}
-.header .menu li {
-  float: left;
-  list-style-type: none;
-}
-.header .menu li a {
-  display: block;
-  color: #8c8c8c;
-  font-size: 0.875rem;
-  font-weight: 300;
-  line-height: 3rem;
-  text-decoration: none;
-  padding: 0 0.9375rem;
-}
-.header .menu li a:hover {
-  color: #212121;
-  border-bottom: 0.0625rem solid black;
-}
-.header .menu li a:active {
-  text-shadow: 0.0625rem 0.125rem 0.5625rem black;
 }
 .header {
   height: 22.5rem;
@@ -149,92 +91,5 @@ body {
   line-height: 1.25rem;
   text-align: center;
   transform: scaleX(1.0041);
-}
-.footer {
-  height: 24rem;
-  padding-left: 6.125rem;
-  padding-right: 4.0625rem;
-  background-color: #f7f7f7;
-}
-.footer .f_text {
-  padding-top: 7.5rem;
-}
-.footer .f_text h3 {
-  color: #6c6c6c;
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  letter-spacing: 0.125rem;
-  margin-bottom: 1.5rem;
-}
-.footer .f_text .f_contact p {
-  color: #212121;
-  font-size: 0.875rem;
-  font-weight: 300;
-  line-height: 1.375rem;
-  padding-right: 2.5rem;
-}
-.footer .f_text .uinf ul {
-  padding-inline-start: 0;
-}
-.footer .f_text .uinf ul li {
-  list-style-type: none;
-}
-.footer .f_text .uinf ul li a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #212121;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1.625rem;
-}
-.footer .f_text .uinf ul li a:hover {
-  border-bottom: 0.0625rem solid black;
-}
-.footer .f_text .uinf ul li a:active {
-  text-shadow: 0.0625rem 0.125rem 0.5625rem black;
-}
-.footer .f_text .stay_it {
-  width: 23.125rem;
-}
-.footer .f_text .stay_it p {
-  margin-bottom: 1.625rem;
-}
-.footer .f_text .stay_it .email {
-  display: flex;
-  margin-bottom: 3.75rem;
-}
-.footer .f_text .stay_it .email .form-control {
-  height: 2.875rem;
-  padding-left: 0.625rem;
-  padding-right: 2.25rem;
-  border-width: 0.0625rem;
-  border-color: #d9dee1;
-  border-style: solid;
-  background-color: #ffffff;
-}
-.footer .f_text .stay_it .email .button {
-  margin-left: -2.1875rem;
-  margin-top: 0.625rem;
-}
-.footer .ground {
-  text-transform: uppercase;
-  color: #6c6c6c;
-  font-size: 0.125rem;
-  font-weight: 700;
-  line-height: 1.625rem;
-}
-.footer .ground .icons map area {
-  outline: none;
-}
-.footer .ground .terms a {
-  text-decoration: none;
-  color: #6c6c6c;
-}
-.footer .ground .terms a:hover {
-  border-bottom: 0.0625rem solid #6c6c6c;
-}
-.footer .ground .terms a:active {
-  text-shadow: 0.0625rem 0.125rem 1.5625rem black;
 }
 /*# sourceMappingURL=contacts.css.map */

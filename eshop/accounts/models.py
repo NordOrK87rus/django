@@ -7,12 +7,14 @@ class AccountUser(AbstractUser):
         'images.Avatar',
         on_delete=models.PROTECT,
         blank=True,
-        null=True
+        null=True,
+        verbose_name='Аватар'
     )
     age = models.IntegerField(
         null=False,
         blank=False,
-        default=0
+        default=0,
+        verbose_name='Возраст'
     )
 
     def __str__(self):

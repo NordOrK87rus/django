@@ -11,6 +11,9 @@
     <!-- Bootstrap CSS -->
 {#    <link rel="stylesheet" href="{% static '_d_bootstrap-4/css/bootstrap.min.css' %}">#}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     {% block page_styles %}{% endblock %}
     {% block page_title %}{% endblock %}
 </head>
@@ -18,7 +21,7 @@
 <body>
     <div class="container px-0">
         <div class="header">
-                <a href="#">
+                <a href="{% url 'mainapp:index' %}">
                     <img class="logo" src="{% static 'img/logo.png'%}" alt="logo">
                 </a>
 
@@ -26,6 +29,17 @@
                     {% for i in menu_items %}
                         <li><a href="{{ i.href }}">{{ i.name|upper }}</a></li>
                     {% endfor %}
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}</a>
+                            <a href="{% url 'auth:logout' %}">Log out</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'auth:login' %}">Log in</a>
+                        </li>
+
+                    {% endif %}
                 </ul>
 
                 {% block header_text %}{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{%  block page_title %}
+    <title>Register</title>
+{% endblock %}
+
+{%  block page_styles %}
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <div class="row login">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form class="form-horizontal" action="{% url 'auth:sign_in' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input class="form-control" type="submit" value="Register">
+            </form>
+        </div>
+         <div class="col-md-3"></div>
+    </div>
+
+{% endblock %}
+
