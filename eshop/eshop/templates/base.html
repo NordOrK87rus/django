@@ -31,8 +31,7 @@
                     {% endfor %}
                     {% if user.is_authenticated %}
                         <li>
-                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}</a>
-                            <a href="{% url 'auth:logout' %}">Log out</a>
+                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}</a>&nbsp;<a href="{% url 'auth:logout' %}">Log out</a>
                         </li>
                     {% else %}
                         <li>

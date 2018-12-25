@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
-from .forms import AccountUserLoginForm, AccountUserSignUpForm
+from .forms import AccountUserLoginForm, AccountUserSignUpForm, AccountUserEditForm
 
 
 def login_view(request):
@@ -29,7 +29,21 @@ def logout_view(request):
 
 
 def edit_view(request):
-    return HttpResponseRedirect(reverse('main'))
+    if request.method == 'POST':
+        edit_form = AccountUserEditForm(request.POST, request.FILES, instance=request.user)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('auth:edit'))
+    else:
+        edit_form = AccountUserEditForm(instance=request.user)
+
+    return render(
+        request,
+        'accounts/edit.html',
+        {
+            'form': edit_form
+        }
+        )
 
 
 def sign_up_view(request):
