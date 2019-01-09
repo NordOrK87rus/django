@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/container.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     {% block page_styles %}{% endblock %}
     {% block page_title %}{% endblock %}
 </head>
@@ -31,11 +32,13 @@
                     {% endfor %}
                     {% if user.is_authenticated %}
                         <li>
-                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}</a>&nbsp;<a href="{% url 'auth:logout' %}">Log out</a>
+                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}&nbsp;&#9660;</a>
+{#                            <a href="{% url 'auth:logout' %}">LOG OUT</a>#}
                         </li>
+                        <li><i class="fa fa-shopping-basket" aria-hidden="true"></i></li>
                     {% else %}
                         <li>
-                            <a href="{% url 'auth:login' %}">Log in</a>
+                            <a href="{% url 'auth:login' %}">LOG IN</a>
                         </li>
 
                     {% endif %}
