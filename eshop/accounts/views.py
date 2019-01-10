@@ -1,19 +1,22 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
-from django.urls import reverse
+from django.urls import reverse_lazy
 from .forms import AccountUserLoginForm, AccountUserSignUpForm, AccountUserEditForm
 
 
 def login_view(request):
+    success_url = reverse_lazy('mainapp:index')
     form = AccountUserLoginForm()
 
-    if request.method == 'POST' and form.is_valid():
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-        if user and user.is_active:
-            auth.login(request, user)
-        return HttpResponseRedirect(reverse('main'))
+    if request.method == 'POST':
+        form = AccountUserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username, password=password)
+            if user and user.is_active:
+                auth.login(request, user)
+            return HttpResponseRedirect(success_url)
 
     return render(
         request,
@@ -25,7 +28,8 @@ def login_view(request):
 
 
 def logout_view(request):
-    pass
+    auth.logout(request)
+    return HttpResponseRedirect(reverse_lazy('mainapp:index'))
 
 
 def edit_view(request):
