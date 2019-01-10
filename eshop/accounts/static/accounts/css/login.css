@@ -2,8 +2,10 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.user_avatar {
+.user_avatar > img {
   margin: 0 auto;
+  transform: scale(1);
   max-height: 200px;
+  padding: 30px;
 }
 /*# sourceMappingURL=login.css.map */
