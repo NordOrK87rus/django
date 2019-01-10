@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 
 class Category(models.Model):
@@ -42,6 +41,11 @@ class Product(models.Model):
         max_length=250,
         default='',
         verbose_name='Description')
+    cost = models.DecimalField(
+        max_digits=12,
+        decimal_places=2,
+        default=0
+    )
     exclusive = models.BooleanField(
         verbose_name='Exclusive',
         default=False)
@@ -60,5 +64,9 @@ class Product(models.Model):
 
     def __str__(self):
         return "%s (%s%s)" % (self.name, self.desc[:50], '...' if len(self.desc) > 50 else '')
+
+    @property
+    def is_modified(self):
+        return self.modified != self.created
 
 

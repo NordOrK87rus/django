@@ -37,7 +37,7 @@ def edit_view(request):
         edit_form = AccountUserEditForm(request.POST, request.FILES, instance=request.user)
         if edit_form.is_valid():
             edit_form.save()
-            return HttpResponseRedirect(reverse('auth:edit'))
+            return HttpResponseRedirect(reverse_lazy('auth:edit'))
     else:
         edit_form = AccountUserEditForm(instance=request.user)
 
@@ -55,7 +55,7 @@ def sign_up_view(request):
         sign_up_form = AccountUserSignUpForm(request.POST, request.FILES)
         if sign_up_form.is_valid():
             sign_up_form.save()
-            return HttpResponseRedirect(reverse('auth:login'))
+            return HttpResponseRedirect(reverse_lazy('auth:login'))
     else:
         sign_up_form = AccountUserSignUpForm()
 
