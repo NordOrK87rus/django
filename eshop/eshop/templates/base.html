@@ -31,11 +31,14 @@
                         <li><a href="{{ i.href }}">{{ i.name|upper }}</a></li>
                     {% endfor %}
                     {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'auth:edit' %}">{{ user.username|default:'User' }}&nbsp;&#9660;</a>
-{#                            <a href="{% url 'auth:logout' %}">LOG OUT</a>#}
+                        <li class="user_menu">
+                           <a href="javascript:void(0)" onmouseover="this.style.borderBottom='none';">{{ user.username|default:'User' }}&#9660;</a>
+                           <ul>
+                               <li><a href="{% url 'auth:edit' %}">Edit user profile</a></li>
+                               <li><a href="{% url 'auth:logout' %}">Log out</a></li>
+                            </ul>
                         </li>
-                        <li><i class="fa fa-shopping-basket" aria-hidden="true"></i></li>
+                        <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
                     {% else %}
                         <li>
                             <a href="{% url 'auth:login' %}">LOG IN</a>
