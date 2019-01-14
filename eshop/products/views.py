@@ -9,7 +9,7 @@ def products_view(request, pk=None):
 
     categories = Category.objects.all()
     pl = get_list_or_404(Product.objects.all())
-
+    category = None
     if pk:
         if pk == 0:
             pl = get_list_or_404(Product.objects.all().order_by('name'))
@@ -23,6 +23,8 @@ def products_view(request, pk=None):
         'products/products.html',
         {
             'menu_items': menu_data,
+            'category': category,
+            'categories': categories,
             'products': [pl[i:i+3] for i in range(0, 12, 3)],
             'promo': get_list_or_404(Product.objects.filter(is_promo=True))
         }
