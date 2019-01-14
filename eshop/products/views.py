@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.http import JsonResponse
 from .models import Product, Category
 import json
 
 
 def get_products(cat_pk=None):
-
     pl = get_list_or_404(Product.objects.all())
     category = None
     if cat_pk:
@@ -17,10 +17,10 @@ def get_products(cat_pk=None):
 
     pl_arr = []
     for i in range(0, 12, 3):
-        _tmp = pl[i:i+3]
+        _tmp = pl[i:i + 3]
 
         if len(_tmp) > 0 and len(_tmp) % 3 != 0:
-            pl_arr.append(_tmp + [None]*(3-len(_tmp) % 3))
+            pl_arr.append(_tmp + [None] * (3 - len(_tmp) % 3))
         else:
             pl_arr.append(_tmp)
 
@@ -44,4 +44,13 @@ def products_view(request, pk=None):
             'products': pl,
             'promo': get_list_or_404(Product.objects.filter(is_promo=True))
         }
+    )
+
+
+def products_json(request):
+    pl, category = get_products()
+
+    return JsonResponse(
+        list(),
+        safe=False
     )

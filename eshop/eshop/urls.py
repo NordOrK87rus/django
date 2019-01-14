@@ -19,8 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+router = [
+    path('products/', include('products.routes')),
+    # path('cart/', include('cart.routes')),
+]
+
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
+    re_path(r'^api/', include(router)),
     re_path(r'^auth/', include('accounts.urls'), name='auth'),
     re_path(r'^', include('mainapp.urls'), name='mainapp'),
     re_path(r'^contacts/', include('contacts.urls'), name='contacts'),

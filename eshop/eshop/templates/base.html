@@ -38,7 +38,7 @@
                                <li><a href="{% url 'auth:logout' %}">Log out</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;<span id="cart_data"></span></a></li>
                     {% else %}
                         <li>
                             <a href="{% url 'auth:login' %}">LOG IN</a>
@@ -121,6 +121,9 @@
 
     </div>
     {% bootstrap_javascript %}
-
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script>
+        updateCartData();
+    </script>
 </body>
 </html>

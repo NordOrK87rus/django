@@ -23,7 +23,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'exclusive', 'is_promo', 'in_trend')
+    list_display = ('name', 'category', 'cost', 'exclusive', 'is_promo', 'in_trend')
     readonly_fields = ['image_preview', ]
     change_list_template = "admin/changelist.html"
 
