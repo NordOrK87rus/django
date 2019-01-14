@@ -8,6 +8,7 @@
 
 {%  block page_styles %}
     <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font_awesome/font-awesome.css' %}">
 {% endblock %}
 
 
@@ -32,7 +33,15 @@
             {% for pli in products %}
             <div class="row">
                 {% for pi in pli %}
-                    <div class="col-md-4"><img class="pi" src="{{ MEDIA_URL }}{{ pi.image.value }}" alt="{{ pi.name }}"></div>
+                    <div class="col-md-4 fp">
+                        {% if pi %}
+                            <div class="pi" style="background-image: url({{ MEDIA_URL }}{{ pi.image.value }});"></div>
+                            <div class="details">
+                                <h4>Cost: {{ pi.cost }}</h4>
+                                <a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart</a>
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
             {% endfor %}
