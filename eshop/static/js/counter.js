@@ -13,7 +13,8 @@ const setLocalValue = (itemName, key, value) => {
 const incLocalValue = (itemName, key, value=1) => {
     const storageItem = getLocalValue(itemName);
     const storageItemValue = storageItem[key] ? storageItem[key] : 0;
-    setLocalValue(itemName, key, storageItemValue + value)
+    setLocalValue(itemName, key, storageItemValue + value);
+    updateCartData();
 
 };
 
@@ -21,10 +22,15 @@ const decLocalValue = (itemName, key, value=1) => {
     const storageItem = getLocalValue(itemName);
     const storageItemValue = storageItem[key] ? storageItem[key] : 0;
     setLocalValue(itemName, key, storageItemValue - value)
+    updateCartData();
 };
 
 const updateCartData = () => {
+    const storageItem = getLocalValue('product');
+    let goods_sum = 0;
+    for (let k in storageItem){
+        goods_sum += storageItem[k];
+    }
     const cartItem = document.getElementById("cart_data");
-    const curValue = cartItem.innerText ? cartItem.innerText : 0;
-    cartItem.innerText = curValue;
+    cartItem.innerText = goods_sum;
 };

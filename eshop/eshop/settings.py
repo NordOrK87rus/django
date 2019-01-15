@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'images',
     'mainapp',
     'contacts',
-    'products'
+    'products',
+    'cart'
+
 ]
 
 AUTH_USER_MODEL = 'accounts.AccountUser'

@@ -122,6 +122,7 @@
     </div>
     {% bootstrap_javascript %}
     <script src="{% static 'js/counter.js' %}"></script>
+    {% block page_js %}{% endblock %}
     <script>
         updateCartData();
     </script>

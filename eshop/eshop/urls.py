@@ -28,9 +28,10 @@ urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^api/', include(router)),
     re_path(r'^auth/', include('accounts.urls'), name='auth'),
-    re_path(r'^', include('mainapp.urls'), name='mainapp'),
     re_path(r'^contacts/', include('contacts.urls'), name='contacts'),
     re_path(r'^products/', include('products.urls'), name='products'),
+    re_path(r'^cart/', include('cart.urls'), name='cart'),
+    re_path(r'^', include('mainapp.urls'), name='mainapp'),
 ]
 
 if settings.DEBUG:

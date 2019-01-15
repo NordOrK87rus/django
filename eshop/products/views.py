@@ -4,27 +4,28 @@ from .models import Product, Category
 import json
 
 
-def get_products(cat_pk=None):
-    pl = get_list_or_404(Product.objects.all())
-    category = None
-    if cat_pk:
-        if cat_pk == 0:
-            pl = get_list_or_404(Product.objects.all().order_by('name'))
-            category = {'name': 'все'}
-        else:
-            category = get_object_or_404(Category, pk=cat_pk)
-            pl = get_list_or_404(Product.objects.filter(category__pk=cat_pk).order_by('name'))
+def get_products(cat_pk=None, json_req=False, id_list=None):
+    if json_req:
+        return Product.objects.filter(pk__in=id_list) if id_list else Product.objects.all()
+    else:
+        category = None
+        if cat_pk:
+            if cat_pk == 0:
+                pl = get_list_or_404(Product.objects.all().order_by('name'))
+                category = {'name': 'все'}
+            else:
+                category = get_object_or_404(Category, pk=cat_pk)
+                pl = get_list_or_404(Product.objects.filter(category__pk=cat_pk).order_by('name'))
 
-    pl_arr = []
-    for i in range(0, 12, 3):
-        _tmp = pl[i:i + 3]
+        pl_arr = []
+        for i in range(0, 12, 3):
+            _tmp = pl[i:i + 3]
 
-        if len(_tmp) > 0 and len(_tmp) % 3 != 0:
-            pl_arr.append(_tmp + [None] * (3 - len(_tmp) % 3))
-        else:
-            pl_arr.append(_tmp)
-
-    return pl_arr, category
+            if len(_tmp) > 0 and len(_tmp) % 3 != 0:
+                pl_arr.append(_tmp + [None] * (3 - len(_tmp) % 3))
+            else:
+                pl_arr.append(_tmp)
+        return pl_arr, category
 
 
 def products_view(request, pk=None):
@@ -48,9 +49,10 @@ def products_view(request, pk=None):
 
 
 def products_json(request):
-    pl, category = get_products()
+    pl = get_products(json_req=True,
+                      id_list=map(int, request.GET['id'].split(',')) if 'id' in request.GET.keys() else None)
 
     return JsonResponse(
-        list(),
+        list({'id': i.id, 'name': i.name, 'cost': float(i.cost)} for i in pl),
         safe=False
     )

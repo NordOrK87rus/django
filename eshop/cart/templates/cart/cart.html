@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%  block page_title %}
+    <title>Cart</title>
+{% endblock %}
+
+{%  block page_styles %}
+{#    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">#}
+{% endblock %}
+
+
+{% block page_content %}
+    <div class="row p_list"></div>
+{% endblock %}
+
+{% block page_js %}
+    <script>
+        const p_list = document.querySelector('.p_list');
+        const cart_data = getLocalValue('products');
+        const id_lst = Object.keys(cart_data);
+
+        if (id_lst.length > 0){
+            const reqUrl = "{% url 'rest_products:index' %}?id=${id_lst.join(',')}"
+
+            fetch(reqUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.map(
+                    itm => p_list.innerHTML +='<div class="col-md-3">${itm}</div>' +
+                        '<div class="col-md-3">${cart_data[itm.id]}</div>' +
+                        '<div class="col-md-3"></div>' +
+                        '<div class="col-md-3"></div>'
+                )
+            })
+        }
+
+    </script>
+{% endblock %}
